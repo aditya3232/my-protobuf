@@ -17,5 +17,6 @@ func main() {
 	log.SetFlags(0)
 	log.SetOutput(new(logWriter))
 
-	basic.BasicHello()
+	// basic.BasicHello()
+	basic.BasicUser()
 }
