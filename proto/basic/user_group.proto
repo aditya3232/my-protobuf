@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "proto/basic/user.proto";
+
+option go_package = "my-protobuf/protogen/basic";
+
+message UserGroup {
+  uint32 group_id = 1 [json_name = "group_id"];
+  string group_name = 2 [json_name = "group_name"];
+  repeated string roles = 3 [json_name = "roles"];
+  repeated User users = 4 [json_name = "users"];
+
+  // gunakan angka besar untuk field yang tidak wajib
+  string description = 16 [json_name = "description"]; 
+}
