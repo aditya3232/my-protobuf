@@ -74,12 +74,14 @@ type User struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id       uint32   `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Username string   `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty"`
-	IsActive bool     `protobuf:"varint,3,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
-	Password []byte   `protobuf:"bytes,4,opt,name=password,proto3" json:"password,omitempty"`
-	Emails   []string `protobuf:"bytes,16,rep,name=emails,proto3" json:"emails,omitempty"` // angka tidak harus urut
-	Gender   Gender   `protobuf:"varint,17,opt,name=gender,proto3,enum=Gender" json:"gender,omitempty"`
+	Id       uint32 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Username string `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty"`
+	IsActive bool   `protobuf:"varint,3,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	Password []byte `protobuf:"bytes,4,opt,name=password,proto3" json:"password,omitempty"`
+	// angka tidak harus urut, repeated untuk array
+	// (beberapa emails bisa diinputkan)
+	Emails []string `protobuf:"bytes,16,rep,name=emails,proto3" json:"emails,omitempty"`
+	Gender Gender   `protobuf:"varint,17,opt,name=gender,proto3,enum=Gender" json:"gender,omitempty"`
 }
 
 func (x *User) Reset() {

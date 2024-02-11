@@ -3,6 +3,8 @@ package basic
 import (
 	"log"
 	"my-protobuf/protogen/basic"
+
+	"google.golang.org/protobuf/encoding/protojson"
 )
 
 func BasicUser() {
@@ -19,4 +21,22 @@ func BasicUser() {
 	}
 
 	log.Println(&u)
+}
+
+// protobuf to json
+func ProtoToJsonUser() {
+	p := basic.User{
+		Id:       99,
+		Username: "nisa",
+		IsActive: true,
+		Password: []byte("nisapassword"),
+		Emails: []string{
+			"kusuriyanohitorigoto@gmail.com",
+			"mashle@gmail.com",
+		}, // repeated
+		Gender: basic.Gender_GENDER_FEMALE, // enum
+	}
+
+	jsonBytes, _ := protojson.Marshal(&p)
+	log.Println(string(jsonBytes))
 }
