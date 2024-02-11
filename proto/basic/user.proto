@@ -18,4 +18,12 @@ message User {
   // (beberapa emails bisa diinputkan)
   repeated string emails = 16; 
   Gender gender = 17;
+  Address address = 18;
+}
+
+// address sebagai tipe data di user  
+message Address {
+  string street = 1;
+  string city = 2;
+  string country = 3;
 }

@@ -18,6 +18,7 @@ func BasicUser() {
 			"frieren@gmail.com",
 		}, // repeated
 		Gender: basic.Gender_GENDER_MALE, // enum
+
 	}
 
 	log.Println(&u)
@@ -25,6 +26,12 @@ func BasicUser() {
 
 // protobuf to json
 func ProtoToJsonUser() {
+	addr := basic.Address{
+		Street:  "Jl. Kebon Sirih",
+		City:    "Jakarta",
+		Country: "Indonesia",
+	}
+
 	p := basic.User{
 		Id:       99,
 		Username: "nisa",
@@ -34,7 +41,8 @@ func ProtoToJsonUser() {
 			"kusuriyanohitorigoto@gmail.com",
 			"mashle@gmail.com",
 		}, // repeated
-		Gender: basic.Gender_GENDER_FEMALE, // enum
+		Gender:  basic.Gender_GENDER_FEMALE, // enum
+		Address: &addr,                      // embedded
 	}
 
 	jsonBytes, _ := protojson.Marshal(&p)
