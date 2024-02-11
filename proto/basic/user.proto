@@ -26,4 +26,14 @@ message Address {
   string street = 1;
   string city = 2;
   string country = 3;
+  Coordinate coordinate = 16;
+  
+  // neseted message biasanya menghasilkan object di dalam object
+  // sedangkan import message menghasilkan array yang berisi object dari message
+  // nested message (message di dalam message), lebih baik import message sih
+  // tapi ini contoh nested message
+  message Coordinate {
+    double latitude = 1;
+    double longitude = 2;
+  }
 }

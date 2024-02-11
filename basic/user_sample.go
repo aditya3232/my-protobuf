@@ -30,6 +30,10 @@ func ProtoToJsonUser() {
 		Street:  "Jl. Kebon Sirih",
 		City:    "Jakarta",
 		Country: "Indonesia",
+		Coordinate: &basic.Address_Coordinate{
+			Latitude:  6.174465,
+			Longitude: 106.822745,
+		},
 	}
 
 	p := basic.User{
