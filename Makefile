@@ -21,6 +21,8 @@ endif
 protoc:
 	protoc --go_opt=module=${GO_MODULE} --go_out=. \
 	./proto/basic/*.proto \
+	./proto/dummy/*.proto \
+	./proto/jobsearch/*.proto \
 
 # digunakan untuk hapus folder protogen, compile file proto, dan download dependency go
 .PHONY: build

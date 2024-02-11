@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+/*
+- package digunakan ketika menggunakan import dibeda folder
+- tapi tetap harus menggunakan import "namafile.proto"
+- setelah menambahkan folder baru di proto, ubah juga makefilenya
+*/
+
+import "proto/basic/application.proto";
+import "proto/dummy/application.proto";
+
+option go_package = "my-protobuf/protogen/jobsearch";
+
+message JobCandidate {
+  uint32 job_candidate_id = 1 [json_name = "job_candidate_id"];
+  the.dummy.Application application = 2; // package name is "the.dummy"
+}
+
+message JobSoftware {
+  uint32 job_software_id = 1 [json_name = "job_software_id"];
+  the.basic.Application application = 2; // package name is "the.basic"
+}

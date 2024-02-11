@@ -238,6 +238,8 @@ func (x *Address) GetCoordinate() *Address_Coordinate {
 	return nil
 }
 
+// neseted message biasanya menghasilkan object di dalam object
+// sedangkan import message menghasilkan array yang berisi object dari message
 // nested message (message di dalam message), lebih baik import message sih
 // tapi ini contoh nested message
 type Address_Coordinate struct {
